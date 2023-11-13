@@ -28,7 +28,7 @@ function cameraStart() {
   navigator.mediaDevices
     .getUserMedia(constraints)
     .then(function (stream) {
-      let track = stream.getTracks[0]
+      let track = stream.getTracks()[0]
       cameraView.srcObject = stream;
     })
     .catch(function (error) {
@@ -54,7 +54,7 @@ cameraFlipper.onclick = function () {
 
 function stopMediaTracks(stream) {
   stream.getTracks().forEach(track => {
-    track().stop;
+    track.stop();
   });
 }
 
